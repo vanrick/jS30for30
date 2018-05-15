@@ -69,24 +69,39 @@
         // Array.prototype.find()
         // Find is like filter, but instead returns just the one you are looking for
         // find the comment with the ID of 823423
-        const isId = comments.find(indentification => {
-            if (indentification.id == 823423) {
-                return indentification
-            }
-        })
-        console.log('isId ', isId);
+        // const isId = comments.find(comment => {
+        //     if (comment.id == 823423) {
+        //         return comment
+        //     }
+        // })
+        // console.log('isId ', isId);
+
+        //code golf
+        const comment = comments.find(comment => comment.id == 823423);
+        console.log(comment);
+
 
         // Array.prototype.findIndex()
         // Find the comment with this ID
         // delete the comment with the ID of 823423
 
         const findI = comments.findIndex(comment => {
-            return comment.id == 823423
-        })
-        console.log('before ', comments);
-        console.log(comments.splice(1, findI));
-        console.log('after ', comments);
-        console.log('index ', findI);
+                return comment.id == 823423
+            })
+            // console.log('before ', comments);
+            // console.log(comments.splice(1, findI));
+            // console.log('after ', comments);
+            // console.log('index ', findI);
+
+
+        // create new array before manipulating it
+        console.table(comments);
+
+        const newCommentsArray = [
+            ...comments.slice(0, findI),
+            ...comments.slice(findI + 1)
+        ]
+        console.table(newCommentsArray);
     </script>
 </body>
 
